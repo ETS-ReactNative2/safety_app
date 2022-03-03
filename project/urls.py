@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('jwt_auth.urls')),
     path('substances/', include('substance.urls')),
+    path('reports/', include('reports.urls'))
 ]

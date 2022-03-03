@@ -14,11 +14,6 @@ class SubstanceListView(APIView):
         serialized_substances = SubstanceSerializer(substances, many=True)
         return Response(serialized_substances.data, status=status.HTTP_200_OK)
 
-    # def get_queryset(self, request):
-    #     choices = request.choices
-    #     matches = Substance.objects.filter(symptoms__contains=choices)
-    #     serialized_matches = SubstanceSerializer(matches, many=True)
-    #     return Response(serialized_matches.data, status=status.HTTP_200_OK)
 
 class SubstanceDetailView(APIView):
 
@@ -29,3 +24,14 @@ class SubstanceDetailView(APIView):
             return Response(serialized_substance.data, status=status.HTTP_200_OK)
         except Substance.DoesNotExist:
             raise NotFound(detail="Substance not found")
+
+
+class SubstanceMatchView(APIView):
+    def get_queryset(self, request):
+        try:
+            choices = request.choices
+            matches = Substance.objects.filter(symptoms__contains=choices)
+            serialized_matches = SubstanceSerializer(matches, many=True)
+            return Response(serialized_matches.data, status=status.HTTP_200_OK)
+        except Substance.DoesNotExist:
+            raise NotFound(detail="Something went wrong.")

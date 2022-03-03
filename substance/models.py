@@ -10,3 +10,6 @@ class Substance(models.Model):
     duration = models.CharField(max_length=30)
     symptoms = ArrayField(models.PositiveSmallIntegerField(blank=True))
     notes = ArrayField(models.TextField(default=None))
+
+    def __str__(self):
+        return f"{self.name}"
