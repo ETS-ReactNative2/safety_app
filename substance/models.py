@@ -6,10 +6,10 @@ from django.db import models
 class Substance(models.Model):
     name = models.CharField(max_length=20)
     link = models.CharField(max_length=200, default=None)
-    drug_class = models.CharField(max_length=10, default=None)
+    drug_class = models.CharField(max_length=10, blank=True)
     duration = models.CharField(max_length=30)
     symptoms = ArrayField(models.PositiveSmallIntegerField(blank=True))
-    notes = ArrayField(models.TextField(default=None))
+    notes = ArrayField(models.CharField(max_length=500 ,blank=True), default=list, blank=True)
 
     def __str__(self):
         return f"{self.name}"
