@@ -63,12 +63,12 @@ class ReportDetailView(APIView):
     def put(self, request, pk):
         try:
             report_to_update = Report.objects.get(pk=pk)
+            print(report_to_update)
             if report_to_update.owner != request.user:
                 raise PermissionDenied(detail="Unauthorized")
-            serialized_report_to_update = ReportSerializer(report_to_update, data=request.data)
-            
+            serialized_report_to_update = ReportSerializer(report_to_update, data=request.data, partial=True)
             if serialized_report_to_update.is_valid():
                 serialized_report_to_update.save()
-            return Response(serialized_report_to_update.data, status=status.HTTP_200_OK)
+                return Response(serialized_report_to_update.data, status=status.HTTP_200_OK)
         except Report.DoesNotExist:
             raise NotFound(detail="Report not found")
