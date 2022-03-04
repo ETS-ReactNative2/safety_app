@@ -25,12 +25,11 @@ class SubstanceDetailView(APIView):
         except Substance.DoesNotExist:
             raise NotFound(detail="Substance not found")
 
-
 class SubstanceMatchView(APIView):
-    def get_queryset(self, request):
+    
+    def get(self, request):
         try:
-            choices = request.choices
-            matches = Substance.objects.filter(symptoms__contains=choices)
+            matches = Substance.objects.filter(symptoms__overlap=request.data.get('choices'))
             serialized_matches = SubstanceSerializer(matches, many=True)
             return Response(serialized_matches.data, status=status.HTTP_200_OK)
         except Substance.DoesNotExist:

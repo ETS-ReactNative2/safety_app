@@ -1,0 +1,16 @@
+[
+{
+  "model": "reports.report",
+  "pk": 1,
+  "fields": {
+    "spiking_method": "drink",
+    "has_reported": "yes",
+    "owner": 1,
+    "substance": 1,
+    "incident_place": "Bar",
+    "location": "London",
+    "latitude": "",
+    "longitude": ""
+  }
+}
+]

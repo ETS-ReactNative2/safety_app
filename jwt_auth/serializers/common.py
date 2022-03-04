@@ -9,23 +9,27 @@ class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     password_confirmation = serializers.CharField(write_only=True)
 
-    class Meta:
-        model = User
-        fields = ("id", "username", "email", "password", "password_confirmation" )
-
     def validate(self, data):
+        print("in serializer", data)
         password = data.pop('password')
         password_confirmation = data.pop('password_confirmation')
 
         if password != password_confirmation:
+            print("not good password")
             raise ValidationError({'password_confirmation': "Passwords does not match"})
 
         try:
             password_validation.validate_password(password)
+            print("validating your password")
         except ValidationError as error:
             raise ValidationError({'password': "Invalid password"})
 
         data['password'] = make_password(password)
 
         return data
+
+    class Meta:
+        model = User
+        fields = ("id", "username", "email", "password", "password_confirmation" )
+
 
