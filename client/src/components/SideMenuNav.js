@@ -8,11 +8,11 @@ const SideMenuNav = () =>{
     return (
         <>
         <SideSheet isShown={isOpen} onCloseComplete={() => setIsOpen(false)} width={200}>
-            <Paragraph><Link to="/register">Register</Link></Paragraph>
-            <Paragraph><Link to="/login">Login</Link></Paragraph>
-            <Paragraph><Link to="/symptomchecker">Symptom Checker</Link></Paragraph>
-            <Paragraph><Link to="/resources">Resources</Link></Paragraph>
-            <Paragraph><Link to="/links">Links</Link></Paragraph>
+            <Paragraph><Link to="/register" onClick={() => setIsOpen(false)}>Register</Link></Paragraph>
+            <Paragraph><Link to="/login" onClick={() => setIsOpen(false)}>Login</Link></Paragraph>
+            <Paragraph><Link to="/symptomchecker" onClick={() => setIsOpen(false)}>Symptom Checker</Link></Paragraph>
+            <Paragraph><Link to="/resources" onClick={() => setIsOpen(false)}>Resources</Link></Paragraph>
+            <Paragraph><Link to="/links" onClick={() => setIsOpen(false)}>Links</Link></Paragraph>
             <Paragraph>Emergency numbers</Paragraph>
         </SideSheet>
         <Button onClick={() => setIsOpen(true)}><MenuIcon /></Button>

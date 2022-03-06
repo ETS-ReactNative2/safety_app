@@ -5,6 +5,9 @@ import SideMenuNav from './components/SideMenuNav'
 import Home from './components/Home'
 import Register from './components/Register'
 import Login from './components/Login'
+import LinkPage from './components/LinkPage'
+import SubstancePage from './components/SubstancePage'
+import SymptomChecker from './components/SymptomChecker'
 
 
 function App() {
@@ -19,9 +22,9 @@ function App() {
       <Route path='/' element={<Home />} />
       <Route path='/register' element={<Register />} />
       <Route path='/login' element={<Login />} />
-      <Route path='/symptomchecker' element={<Login />} />
-      <Route path='/resources' element={<Login />} />
-      <Route path='/links' element={<Login />} />
+      <Route path='/symptomchecker' element={<SymptomChecker />} />
+      <Route path='/resources' element={<LinkPage />} />
+      <Route path='/substances' element={<SubstancePage />} />
     </Routes>
     </BrowserRouter>
     </div>

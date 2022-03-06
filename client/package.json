@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-spring/parallax": "^9.4.3",
+    "@react-spring/web": "^9.4.3",
     "axios": "^0.25.0",
     "eslint-plugin-react": "^7.29.3",
     "evergreen-ui": "^6.9.0",
@@ -10,7 +12,9 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.2",
     "react-scripts": "^5.0.0",
-    "sass": "^1.49.9"
+    "react-spring": "^9.4.3",
+    "sass": "^1.49.9",
+    "ui-box": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
