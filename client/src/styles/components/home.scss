@@ -1,0 +1,46 @@
+.home-container {
+  max-width: 100vw;
+  min-height: 100vh;
+  .hero {
+    width: 100vw;
+    height: 43vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30%;
+  }
+  .home-mid-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    div {
+      width: 50%;
+      margin: 10px;
+    }
+    .home-symptom-container {
+      width: 300px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      div {
+        width: 52vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 32vh;
+      }
+      .image {
+        width: 150px;
+        height: 150px;
+        background: url("../../../public/symptomIcon.png");
+        background-repeat: none;
+        background-position: center;
+        background-size: cover;
+        padding: 10px;
+      }
+    }
+  }
+}

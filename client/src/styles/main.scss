@@ -1,15 +1,18 @@
-@import 'variables.scss';
-@import 'components/form.scss';
-@import 'components/navigation.scss';
+@import "variables.scss";
+@import "components/form.scss";
+@import "components/navigation.scss";
+@import "components/home.scss";
 
 * {
   box-sizing: border-box;
   color: $txt-color;
 }
+.app-container {
+  min-height: 100vh;
+  max-width: 100vw;
+}
 
-
-
-.symptoms-slides-container{
+.symptoms-slides-container {
   width: 300px;
   min-height: 100vh;
 }

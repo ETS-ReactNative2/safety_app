@@ -8,6 +8,8 @@ const SymptomChecker = () => {
 
   const navigate = useNavigate()
 
+  let timeout
+
   const [steps, setSteps] = useState(0)
 
   const symptoms = [
@@ -45,14 +47,25 @@ const SymptomChecker = () => {
       selected.filter(i => i !== index) :
       [...selected, index]
     )
+    console.log(selected)
   }
 
+  // const resultTimer = () => {
+  //   timeout = setTimeout(() => {
+  //     navigate('/results', { results: matches })
+  //   }, 5000)
+  // }
+
   const handleSubmit = async () => {
-    const postChoices = { choices: selected }
+    const postChoices = { choices: [...selected] }
+    console.log(postChoices)
     try {
       const { data } = await axios.post('api/substances/matches/', postChoices)
+      console.log(data)
       setMatches(data)
       setSteps(3)
+      // resultTimer()
+      console.log(matches)
     } catch (error) {
       console.log(error)
     }
@@ -117,10 +130,6 @@ const SymptomChecker = () => {
       {<Spinner />}
     </Pane>
   )
-
-  // useEffect(() => {
-  //   setTimeout(navigate('/results', 5000))
-  // }, [matches])
 
 
   return (

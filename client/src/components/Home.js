@@ -1,28 +1,32 @@
 import React from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { Pane, Heading, Text, Paragraph, Image, Button } from 'evergreen-ui'
+import { useNavigate } from 'react-router-dom'
+import { Pane, Heading, Text, Paragraph, Button, Image } from 'evergreen-ui'
 import Box from 'ui-box/dist/src/box'
 
 const Home = () => {
     const navigate = useNavigate()
 
     return (
-        <Pane width={100} margin={15}>
+        <Pane className='home-container'>
 
-            <Box className='hero' width='fit-content'>
+            <Box className='hero'>
                 <Heading>SafetyApp</Heading>
                 <Text>Lorem Ipsum</Text>
             </Box>
 
             <Pane className='home-mid-section'>
-                <Box width={300}>
-                    <Heading>Symptom Checker</Heading>
-                    <Paragraph>Have you been spiked? Not sure what you have been spiked with? Try our Symptom Checker and get potential matches based on your symptoms.</Paragraph>
-                    <Button onClick={() => navigate('/symptomchecker')}>SymptomChecker</Button>
+                <Box className='home-symptom-container'>
+                    <Box>
+                        <Heading>Symptom Checker</Heading>
+                        <Paragraph>Have you been spiked? Not sure what you have been spiked with? Try our Symptom Checker and get potential matches based on your symptoms.</Paragraph>
+                        <Button onClick={() => navigate('/symptomchecker')}>SymptomChecker</Button>
+                    </Box>
+                    <Box className='image'></Box>
                 </Box>
                 <Box>
+                    <Box className='image'></Box>
                     <Heading>Resources</Heading>
-                    <Paragraph>iholshfgo</Paragraph>
+                    <Paragraph></Paragraph>
                     <Button onClick={() => navigate('/resources')}>Resources</Button>
 
                 </Box>
