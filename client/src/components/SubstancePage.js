@@ -9,7 +9,7 @@ const SubstancePage = () => {
 
   const getData = async () => {
     try {
-      const { data } = await axios.get('api/substances/all')
+      const { data } = await axios.post('api/substances/all/')
       setSubstances(data)
       console.log(data)
     } catch (error) {
@@ -24,7 +24,7 @@ const SubstancePage = () => {
 
 
   return (
-    <Pane>
+    <Pane className='substance-container'>
       {substances.length?
       substances.map((item, index) => {
         return(

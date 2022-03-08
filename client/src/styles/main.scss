@@ -1,6 +1,13 @@
+@import 'variables.scss';
+@import 'components/form.scss';
+@import 'components/navigation.scss';
+
 * {
   box-sizing: border-box;
+  color: $txt-color;
 }
+
+
 
 .symptoms-slides-container{
   width: 300px;

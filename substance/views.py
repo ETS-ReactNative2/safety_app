@@ -7,6 +7,7 @@ from .models import Substance
 
 # Create your views here.
 
+
 class SubstanceListView(APIView):
 
     def get(self, _request):
@@ -25,11 +26,13 @@ class SubstanceDetailView(APIView):
         except Substance.DoesNotExist:
             raise NotFound(detail="Substance not found")
 
+
 class SubstanceMatchView(APIView):
-    
-    def get(self, request):
+
+    def post(self, request):
         try:
-            matches = Substance.objects.filter(symptoms__overlap=request.data.get('choices'))
+            matches = Substance.objects.filter(
+                symptoms__overlap=request.data.get('choices'))
             serialized_matches = SubstanceSerializer(matches, many=True)
             return Response(serialized_matches.data, status=status.HTTP_200_OK)
         except Substance.DoesNotExist:

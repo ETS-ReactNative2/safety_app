@@ -36,7 +36,7 @@ const Register = () => {
       console.log(formError)
     }
     try {
-      await axios.post('/api/auth/register', form)
+      await axios.post('/api/auth/register/', form)
       toaster.success('Registering sucessful. Ready to log in', {
         duration: 10
       })
@@ -49,7 +49,7 @@ const Register = () => {
   }
 
   return (
-    <Pane is='form' onSubmit={handleSubmit}>
+    <Pane is='form' onSubmit={handleSubmit} className='form'>
       <Heading>Register</Heading>
       <TextInput
         label="Username"
@@ -58,6 +58,7 @@ const Register = () => {
         name='username'
         value={form.username}
         isInvalid={formError.registerError}
+        marginTop={8}
       />
       <TextInput
         label="Email"
@@ -67,6 +68,7 @@ const Register = () => {
         name='email'
         value={form.email}
         isInvalid={formError.email || formError.registerError}
+        
       />
       <TextInput
         label="Password"
@@ -81,7 +83,7 @@ const Register = () => {
       <TextInput
         label="Password Confirmation"
         type='password'
-        placeholder="Password"
+        placeholder="Confirm password"
         onChange={handleChange}
         name='password_confirmation'
         value={form.password_confirmation}
