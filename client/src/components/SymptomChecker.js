@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import { Pane, Button, Paragraph, Heading, Checkbox, Text, Switch, ArrowRightIcon, Spinner } from 'evergreen-ui'
 // import { Box } from 'ui-box'
 
-const SymptomChecker = () => {
+const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
 
   const navigate = useNavigate()
 
-  let timeout
+  //let timeout
 
   const [steps, setSteps] = useState(0)
 
@@ -39,8 +39,7 @@ const SymptomChecker = () => {
     third: false
   })
 
-  const [selected, setSelected] = useState([])
-  const [matches, setMatches] = useState({})
+  //const [selected, setSelected] = useState([])
 
   const handleSelect = (index) => {
     setSelected(selected.includes(index) ?
@@ -50,22 +49,28 @@ const SymptomChecker = () => {
     console.log(selected)
   }
 
-  // const resultTimer = () => {
-  //   timeout = setTimeout(() => {
-  //     navigate('/results', { results: matches })
-  //   }, 5000)
-  // }
+
+  //Function to create a quick loading page effect
+  useEffect(() => {
+    const resultTimer = () => {
+      setTimeout(() => {
+        navigate('/results')
+      }, 3000)
+    }
+    if (matches) {
+      resultTimer()
+    }
+  }, [matches, navigate])
 
   const handleSubmit = async () => {
     const postChoices = { choices: [...selected] }
     console.log(postChoices)
     try {
       const { data } = await axios.post('api/substances/matches/', postChoices)
-      console.log(data)
-      setMatches(data)
-      setSteps(3)
-      // resultTimer()
-      console.log(matches)
+      if (data.length) {
+        setMatches(data)
+        setSteps(3)
+      }
     } catch (error) {
       console.log(error)
     }
@@ -120,13 +125,13 @@ const SymptomChecker = () => {
         <strong color={isSelected ? 'white' : 'black'}>{item} {isSelected ? '-' : '+'}</strong>
       </Button>
     })}
-    {understoodChecked && actionsChecked.first && actionsChecked.second && actionsChecked.third
+    {understoodChecked && actionsChecked.first && actionsChecked.second && actionsChecked.third && selected.length >= 3
       && <Button iconAfter={ArrowRightIcon} onClick={handleSubmit}>Take me to my results</Button>}
   </Pane>
 
   const StepFour = () => (
     <Pane>
-      <Heading>Rendering results...</Heading>
+      <Heading>Getting your results...</Heading>
       {<Spinner />}
     </Pane>
   )

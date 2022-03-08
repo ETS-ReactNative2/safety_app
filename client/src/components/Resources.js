@@ -8,7 +8,7 @@ const Resources = () => {
   return (
     <Pane>
       <Box>
-        <Heading>What to do if you're spiked and/or assaulted? Or someone you know?</Heading>
+        <Heading>What to do if you or someone else is spiked and/or assaulted?</Heading>
         <Box>
           <Ul>
             <Li>Call the emergency number in your country. Europe(general): 112, UK: 999, US: 911</Li>
@@ -28,20 +28,20 @@ const Resources = () => {
       <Box>
         <Heading>Tips for dealing with drug comedown/</Heading>
         <Ol>
-            <Li>Drink liquids! Water or orange juice with vitamin C. </Li>
-            <Popover
+          <Li>Drink liquids! Water or orange juice with vitamin C. </Li>
+          <Popover
             content={
               <Pane width={200} height={200} padding={6} display="flex" alignItems="center" justifyContent="center" flexDirection="column">
                 <Heading>MDMA/Ecstacy</Heading>
                 <Paragraph>If you think you have been spiked with ecstasy(MDMA), drinking too much water can be dangerous. Max. 1 big glass of water per hour.</Paragraph>
               </Pane>
             }>
-              {IssueIcon}
-            </Popover>
-            <Li>Peppermint tea or mints can help if you have been vomiting or are experiencing nausea. </Li>
-            <Li>If you are having any hallucinations, finding a quiet safe place can calm you down.</Li>
-            <Li>Anxiety and depressed feelings can be induced further by comedown from drugs, so pop your feel good playlist and try to relax. If you would like to talk to someone <Link href='/links'>CLICK HERE</Link> for a list of helplines and links.</Li>
-            <Li>Let someone know of your situation and in the best case get someone to stay with you until the symptoms clear.</Li>
+            {IssueIcon}
+          </Popover>
+          <Li>Peppermint tea or mints can help if you have been vomiting or are experiencing nausea. </Li>
+          <Li>If you are having any hallucinations, finding a quiet safe place can calm you down.</Li>
+          <Li>Anxiety and depressed feelings can be induced further by comedown from drugs, so pop your feel good playlist and try to relax. If you would like to talk to someone <Link href='/links'>CLICK HERE</Link> for a list of helplines and links.</Li>
+          <Li>Let someone know of your situation and in the best case get someone to stay with you until the symptoms clear.</Li>
         </Ol>
         <Text>Lastly, take care of yourself.</Text>
       </Box>

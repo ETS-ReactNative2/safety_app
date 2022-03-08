@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SideMenuNav from './components/SideMenuNav'
 import Home from './components/Home'
@@ -14,25 +14,27 @@ import ReportsDashboard from './components/ReportsDashboard'
 
 
 function App() {
-  
+
+  const [matches, setMatches] = useState(false)
+  const [selected, setSelected] = useState([])
 
   return (
     <div className='app-container'>
-    <BrowserRouter>
-    <SideMenuNav />
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/register' element={<Register />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/symptomchecker' element={<SymptomChecker />} />
-      <Route path='/results' element={<Results />}/>
-      <Route path='/resources' element={<Resources />} />
-      <Route path='/links' element={<LinkPage />} />
-      <Route path='/substances' element={<SubstancePage />} />
-      <Route path='/report' element={<Report />} />
-      <Route path='/reportsdashboard' element={<ReportsDashboard />}/>
-    </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <SideMenuNav />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/symptomchecker' element={<SymptomChecker matches={matches} setMatches={setMatches} selected={selected} setSelected={setSelected} />} />
+          <Route path='/results' element={<Results matches={matches} selected={selected} />} />
+          <Route path='/resources' element={<Resources />} />
+          <Route path='/links' element={<LinkPage />} />
+          <Route path='/substances' element={<SubstancePage />} />
+          <Route path='/report' element={<Report />} />
+          <Route path='/reportsdashboard' element={<ReportsDashboard />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
