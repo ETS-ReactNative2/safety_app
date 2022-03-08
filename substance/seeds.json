@@ -1,98 +1,98 @@
 [
-{
-  "model": "substance.substance",
-  "pk": 1,
-  "fields": {
-    "name": "Alcohol",
-    "link": "https://www.talktofrank.com/drug/alcohol",
-    "drug_class": "",
-    "duration": "4-5 hours",
-    "symptoms": "[\"2\", \"3\", \"4\", \"8\", \"9\", \"11\", \"14\"]",
-    "notes": "[]"
+  {
+    "model": "substance.substance",
+    "pk": 1,
+    "fields": {
+      "name": "Alcohol",
+      "link": "https://www.talktofrank.com/drug/alcohol",
+      "drug_class": "",
+      "duration": "4-5 hours",
+      "symptoms": "[\"2\", \"3\", \"4\", \"8\", \"9\", \"11\", \"14\"]",
+      "notes": "[]"
+    }
+  },
+  {
+    "model": "substance.substance",
+    "pk": 2,
+    "fields": {
+      "name": "Benzodiazepines",
+      "link": "https://www.talktofrank.com/drug/benzodiazepines",
+      "drug_class": "C",
+      "duration": "1 - 4 hours",
+      "symptoms": "[\"1\", \"3\", \"11\", \"13\"]",
+      "notes": "[]"
+    }
+  },
+  {
+    "model": "substance.substance",
+    "pk": 3,
+    "fields": {
+      "name": "Ecstasy",
+      "link": "https://www.talktofrank.com/drug/ecstasy",
+      "drug_class": "A",
+      "duration": "2 - 4 hours",
+      "symptoms": "[\"1\", \"2\", \"5\", \"6\", \"15\", \"17\"]",
+      "notes": "[]"
+    }
+  },
+  {
+    "model": "substance.substance",
+    "pk": 4,
+    "fields": {
+      "name": "GHB",
+      "link": "https://www.talktofrank.com/drug/ghb",
+      "drug_class": "C",
+      "duration": "10 mins - 4 hours",
+      "symptoms": "[\"1\", \"2\", \"5\", \"6\", \"8\", \"12\", \"13\", \"15\", \"16\"]",
+      "notes": "[]"
+    }
+  },
+  {
+    "model": "substance.substance",
+    "pk": 5,
+    "fields": {
+      "name": "Ketamine",
+      "link": "https://www.talktofrank.com/drug/ketamine",
+      "drug_class": "B",
+      "duration": "30 mins - 1 hour",
+      "symptoms": "[\"1\", \"3\", \"5\", \"6\", \"8\", \"9\", \"10\", \"14\", \"16\", \"17\"]",
+      "notes": "[]"
+    }
+  },
+  {
+    "model": "substance.substance",
+    "pk": 6,
+    "fields": {
+      "name": "LSD",
+      "link": "https://www.talktofrank.com/drug/lsd",
+      "drug_class": "A",
+      "duration": "6 - 12 hours",
+      "symptoms": "[\"1\", \"5\", \"6\"]",
+      "notes": "[]"
+    }
+  },
+  {
+    "model": "substance.substance",
+    "pk": 7,
+    "fields": {
+      "name": "Methamphetamines",
+      "link": "https://www.talktofrank.com/drug/methamphetamine",
+      "drug_class": "B",
+      "duration": "4 - 12 hours",
+      "symptoms": "[\"1\", \"2\", \"5\", \"6\", \"9\"]",
+      "notes": "[]"
+    }
+  },
+  {
+    "model": "substance.substance",
+    "pk": 8,
+    "fields": {
+      "name": "Rohypnol",
+      "link": "https://en.wikipedia.org/wiki/Flunitrazepam",
+      "drug_class": "C",
+      "duration": "up to 2 hours",
+      "symptoms": "[\"3\", \"4\", \"8\", \"9\", \"11\", \"12\", \"13\", \"14\"]",
+      "notes": "[]"
+    }
   }
-},
-{
-  "model": "substance.substance",
-  "pk": 2,
-  "fields": {
-    "name": "Benzodiazepines",
-    "link": "https://www.talktofrank.com/drug/benzodiazepines",
-    "drug_class": "C",
-    "duration": "1 - 4 hours",
-    "symptoms": "[\"1\", \"3\", \"11\", \"13\"]",
-    "notes": "[]"
-  }
-},
-{
-  "model": "substance.substance",
-  "pk": 3,
-  "fields": {
-    "name": "Ecstasy",
-    "link": "https://www.talktofrank.com/drug/ecstasy",
-    "drug_class": "A",
-    "duration": "2 - 4 hours",
-    "symptoms": "[\"1\", \"2\", \"5\", \"6\", \"15\", \"17\"]",
-    "notes": "[]"
-  }
-},
-{
-  "model": "substance.substance",
-  "pk": 4,
-  "fields": {
-    "name": "GHB",
-    "link": "https://www.talktofrank.com/drug/ghb",
-    "drug_class": "C",
-    "duration": "10 mins - 4 hours",
-    "symptoms": "[\"1\", \"2\", \"5\", \"6\", \"8\", \"12\", \"13\", \"15\", \"16\"]",
-    "notes": "[]"
-  }
-},
-{
-  "model": "substance.substance",
-  "pk": 5,
-  "fields": {
-    "name": "Ketamine",
-    "link": "https://www.talktofrank.com/drug/ketamine",
-    "drug_class": "B",
-    "duration": "30 mins - 1 hour",
-    "symptoms": "[\"1\", \"3\", \"5\", \"6\", \"8\", \"9\", \"10\", \"14\", \"16\", \"17\"]",
-    "notes": "[]"
-  }
-},
-{
-  "model": "substance.substance",
-  "pk": 6,
-  "fields": {
-    "name": "LSD",
-    "link": "https://www.talktofrank.com/drug/lsd",
-    "drug_class": "A",
-    "duration": "6 - 12 hours",
-    "symptoms": "[\"1\", \"6\"]",
-    "notes": "[]"
-  }
-},
-{
-  "model": "substance.substance",
-  "pk": 7,
-  "fields": {
-    "name": "Methamphetamines",
-    "link": "https://www.talktofrank.com/drug/methamphetamine",
-    "drug_class": "B",
-    "duration": "4 - 12 hours",
-    "symptoms": "[\"1\", \"2\", \"5\", \"6\", \"9\"]",
-    "notes": "[]"
-  }
-},
-{
-  "model": "substance.substance",
-  "pk": 8,
-  "fields": {
-    "name": "Rohypnol",
-    "link": "https://en.wikipedia.org/wiki/Flunitrazepam",
-    "drug_class": "C",
-    "duration": "up to 2 hours",
-    "symptoms": "[\"3\", \"4\", \"8\", \"9\", \"11\", \"12\", \"13\", \"14\"]",
-    "notes": "[]"
-  }
-}
 ]
