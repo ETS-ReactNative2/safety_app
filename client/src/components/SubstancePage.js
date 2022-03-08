@@ -1,32 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Pane, Paragraph, Heading, Popover, Button, Text, Ul, Li, Link } from 'evergreen-ui'
+import { Pane, Paragraph, Heading, Popover, Badge, Text, Link } from 'evergreen-ui'
 import Box from 'ui-box/dist/src/box'
+import { symptomsArr } from '../helpers/constants'
 
 const SubstancePage = () => {
 
   const [substances, setSubstances] = useState({})
   const [hasError, setHasError] = useState({ error: false, message: '' })
 
-  const symptomsArr = [
-    'Confusion',
-    'Decreased inhibitions',
-    'Dizziness',
-    'Drunk or more drunk than expected',
-    'Euphoric sensatations',
-    'Hallucinations',
-    'Inability to protect themselves',
-    'Memory loss',
-    'Nausea, vomiting',
-    'Paralysis',
-    'Poor coordination',
-    'Problem breathing',
-    'Sleepiness',
-    'Slurring of speech',
-    'Sweating',
-    'Unconsciousness',
-    'Unusually long hangover'
-  ]
 
   const getData = async () => {
     try {
@@ -53,16 +35,15 @@ const SubstancePage = () => {
               <>
                 <Popover
                   content={
-                    <Pane margin={10} display="flex" alignItems="center" justifyContent="center" flexDirection="column">
+                    <Pane margin={10} width={300} display="flex" alignItems="center" justifyContent="center" flexDirection="column">
                       <Heading>{item.name}</Heading>
                       <Text>Class: {item.drug_class}</Text>
                       <Text>Duration: {item.duration}</Text>
                       <Box>
-                        <Ul><Text>Symptoms:</Text>
-                          {item.symptoms.map((symptom, index) => {
-                            return <Li key={index + 20}>{symptomsArr[symptom]}</Li>
-                          })}
-                        </Ul>
+                        <Text>Symptoms:</Text>
+                        {item.symptoms.map((symptom, index) => {
+                          return <Badge key={index + 20}>{symptomsArr[symptom - 1]}</Badge>
+                        })}
                       </Box>
                       <Link href={item.link}>talktofrank.com - {item.name}</Link>
                     </Pane>

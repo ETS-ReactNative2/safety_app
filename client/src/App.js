@@ -18,6 +18,12 @@ function App() {
   const [matches, setMatches] = useState(false)
   const [selected, setSelected] = useState([])
 
+  const resetState = () => {
+    setMatches(false)
+    setSelected([])
+  }
+
+
   return (
     <div className='app-container'>
       <BrowserRouter>
@@ -27,7 +33,7 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
           <Route path='/symptomchecker' element={<SymptomChecker matches={matches} setMatches={setMatches} selected={selected} setSelected={setSelected} />} />
-          <Route path='/results' element={<Results matches={matches} selected={selected} />} />
+          <Route path='/results' element={<Results matches={matches} selected={selected} resetState={resetState} />} />
           <Route path='/resources' element={<Resources />} />
           <Route path='/links' element={<LinkPage />} />
           <Route path='/substances' element={<SubstancePage />} />

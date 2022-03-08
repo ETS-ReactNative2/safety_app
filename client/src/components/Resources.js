@@ -26,6 +26,10 @@ const Resources = () => {
         <Button onClick={() => navigate('/links')}>Click here</Button>
       </Box>
       <Box>
+        <Heading>Most common spiking substances</Heading>
+        <Button onClick={() => navigate('/substances')}>Click here</Button>
+      </Box>
+      <Box>
         <Heading>Tips for dealing with drug comedown/</Heading>
         <Ol>
           <Li>Drink liquids! Water or orange juice with vitamin C. </Li>

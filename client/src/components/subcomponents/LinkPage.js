@@ -6,8 +6,8 @@ const LinkPage = () => {
 
   return (
     <Pane className='links-container'>
-      <Heading>Helpful Links and Helplines</Heading>
-      <Paragraph>On this page you can discover helplines and links to various charities that offer help and support for victims and witnesses of spiking culture.</Paragraph>
+      <Heading>Links & Helplines</Heading>
+      <Paragraph>On this page you can discover links and helplines to various organisations that offer help and support for victims and witnesses of spikings.</Paragraph>
       <Box>
         <Heading>Links:</Heading>
         <Paragraph><Link href='https://www.talktofrank.com/'>talktofrank.com</Link> - Information about drugs</Paragraph>

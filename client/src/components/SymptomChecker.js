@@ -1,36 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Pane, Button, Paragraph, Heading, Checkbox, Text, Switch, ArrowRightIcon, Spinner } from 'evergreen-ui'
 // import { Box } from 'ui-box'
+import { symptomsArr } from '../helpers/constants'
 
 const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
 
   const navigate = useNavigate()
 
-  //let timeout
-
   const [steps, setSteps] = useState(0)
-
-  const symptoms = [
-    'Confusion',
-    'Decreased inhibitions',
-    'Dizziness',
-    'Drunk or more drunk than expected',
-    'Euphoric sensatations',
-    'Hallucinations',
-    'Inability to protect themselves',
-    'Memory loss',
-    'Nausea, vomiting',
-    'Paralysis',
-    'Poor coordination',
-    'Problem breathing',
-    'Sleepiness',
-    'Slurring of speech',
-    'Sweating',
-    'Unconsciousness',
-    'Unusually long hangover'
-  ]
 
   const [understoodChecked, setUnderstoodChecked] = useState(false)
   const [actionsChecked, setActionsChecked] = useState({
@@ -50,18 +29,6 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
   }
 
 
-  //Function to create a quick loading page effect
-  useEffect(() => {
-    const resultTimer = () => {
-      setTimeout(() => {
-        navigate('/results')
-      }, 3000)
-    }
-    if (matches) {
-      resultTimer()
-    }
-  }, [matches, navigate])
-
   const handleSubmit = async () => {
     const postChoices = { choices: [...selected] }
     console.log(postChoices)
@@ -70,6 +37,10 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
       if (data.length) {
         setMatches(data)
         setSteps(3)
+        //Fake loading page
+        setTimeout(() => {
+          navigate('/results')
+        }, 3000)
       }
     } catch (error) {
       console.log(error)
@@ -114,7 +85,7 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
 
   const StepThree = () => <Pane>
     <Paragraph>Last step. Symptoms, click all that apply. (min. 3)</Paragraph>
-    {symptoms.map((item, index) => {
+    {symptomsArr.map((item, index) => {
       const isSelected = selected.includes(index + 1)
 
       return <Button

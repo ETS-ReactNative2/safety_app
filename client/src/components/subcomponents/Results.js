@@ -1,54 +1,17 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Pane, Heading, Paragraph, Text, ArrowRightIcon, Link, Button, Badge, Strong } from 'evergreen-ui'
 import Box from 'ui-box/dist/src/box'
+import { symptomsArr } from '../../helpers/constants'
 
-const Results = ({ matches, selected }) => {
-  const symptomsArr = [
-    'Confusion',
-    'Decreased inhibitions',
-    'Dizziness',
-    'Drunk or more drunk than expected',
-    'Euphoric sensatations',
-    'Hallucinations',
-    'Inability to protect themselves',
-    'Memory loss',
-    'Nausea, vomiting',
-    'Paralysis',
-    'Poor coordination',
-    'Problem breathing',
-    'Sleepiness',
-    'Slurring of speech',
-    'Sweating',
-    'Unconsciousness',
-    'Unusually long hangover'
-  ]
+const Results = ({ matches, selected, resetState }) => {
+
+  const navigate = useNavigate()
 
   selected.sort((a, b) => a - b)
   console.log('selected', selected)
   console.log('matches', matches)
 
-
-
-  // const results = matches.filter(match => {
-  //   if (match.symptoms.includes(3) && selected.inculdes(3)) return match
-  //   if (match.symptoms === selected) return match
-  //   if (match.symptoms.includes(selected[0])
-  //     && match.symptoms.includes(selected[1])
-  //     && match.symptoms.includes(selected[2])) return match
-  // })
-
-  // const results = []
-  // for(let i = 0; i> matches.length; i++){
-  //   if(matches[i].symptoms.includes(3) && selected.includes(3)){
-  //     results.push(matches[i])
-  //   }else if(matches[i].symptoms === selected){
-  //     results.push(matches[i])
-  //   }else if(matches[i].symptoms.includes(selected[0]) && matches[i].symptoms.includes(selected[1]) && matches[i].symptoms.includes(selected[2]) ){
-  //     results.push(matches[i])
-  //   }
-  // }
-
-  // const results = matches.some(match => { match})
 
   return (
     <Pane>
@@ -60,10 +23,10 @@ const Results = ({ matches, selected }) => {
           {!!matches ?
             matches.map((match, index) => {
               return <Box key={index - 10}>
-                <Paragraph key={index}><Strong>{match.name}</Strong> - matches:</Paragraph>
+                <Paragraph><Strong>{match.name}</Strong> - matches:</Paragraph>
                 <Box>
                   {match.symptoms.map((symptom, index) => {
-                    return selected.includes(symptom) && <Badge color='#E06C9F' key={index + 13}>{symptomsArr[symptom]}</Badge>
+                    return selected.includes(symptom) && <Badge color='#E06C9F' key={index + 13}>{symptomsArr[symptom - 1]}</Badge>
                   })}
                 </Box>
               </Box>
@@ -81,8 +44,12 @@ const Results = ({ matches, selected }) => {
         <Box>
           <Heading>Want to know more about these substances?</Heading>
           <Text>We listed the most commonly used spiking substances.</Text>
-          <Button>Substances</Button>
+          <Button onClick={() => navigate('/substances')}>Substances</Button>
         </Box>
+        <Button onClick={() => {
+          navigate('/symptomchecker')
+          resetState()
+        }}>Reset?</Button>
       </Box>
     </Pane>
   )
