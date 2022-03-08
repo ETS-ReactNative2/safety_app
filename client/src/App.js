@@ -23,7 +23,6 @@ function App() {
     setSelected([])
   }
 
-
   return (
     <div className='app-container'>
       <BrowserRouter>

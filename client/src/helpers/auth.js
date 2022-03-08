@@ -12,7 +12,7 @@ const getPayload = () => {
   return JSON.parse(Buffer.from(splitToken[1], 'base64'))
 }
 
-export const userAuth = () => {
+export const isUserAuthenticated = () => {
   const payload = getPayload()
   if (!payload) return
   const currentTime = Math.round(Date.now() / 1000)

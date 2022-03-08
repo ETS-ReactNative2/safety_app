@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Pane, Heading, TextInput, Button, Paragraph, toaster } from 'evergreen-ui'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const navigate = useNavigate()
 
   const [form, setForm] = useState({
     email: '',
@@ -13,7 +14,7 @@ const Login = () => {
   const [formError, setFormError] = useState(false)
 
   //setting local token
-  const setTokenFromLocal = (token) => {
+  const setTokenToLocal = (token) => {
     window.localStorage.setItem('safety-token', token)
   }
 
@@ -26,12 +27,14 @@ const Login = () => {
     e.preventDefault()
     try {
       const { data } = await axios.post('/api/auth/login/', form)
-      setTokenFromLocal(data.token)
+      setTokenToLocal(data.token)
       toaster.success('Welcome back! Login successful.', {
         duration: 10
       })
+      navigate('/')
     } catch (error) {
       setFormError(true)
+      console.log(error)
     }
   }
 

@@ -24,15 +24,15 @@ const Register = () => {
   })
 
   const handleChange = (e) => {
-    setFormError({ ...formError, [e.target.name]: false , registerError: false})
-    const newUser = {...form, [e.target.name]: e.target.value}
+    setFormError({ ...formError, [e.target.name]: false, registerError: false })
+    const newUser = { ...form, [e.target.name]: e.target.value }
     setForm(newUser)
-  } 
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (form.password !== form.password_confirmation){
-      setFormError({...formError, password: true, password_confirmation: true})
+    if (form.password !== form.password_confirmation) {
+      setFormError({ ...formError, password: true, password_confirmation: true })
       console.log(formError)
     }
     try {
@@ -42,9 +42,9 @@ const Register = () => {
       })
       navigate('/login')
     } catch (error) {
-      setFormError({...formError, registerError: true})
+      setFormError({ ...formError, registerError: true })
     }
-    
+
 
   }
 
@@ -68,7 +68,7 @@ const Register = () => {
         name='email'
         value={form.email}
         isInvalid={formError.email || formError.registerError}
-        
+
       />
       <TextInput
         label="Password"
@@ -90,9 +90,9 @@ const Register = () => {
         isInvalid={formError.password_confirmation || formError.registerError}
       />
       <Button onClick={handleSubmit} disabled={formError.password || formError.registerError}>Register</Button>
-      {formError.registerError && toaster.danger('Registration failed. Check your username and password.',{
-      duration: 10,
-    })}
+      {formError.registerError && toaster.danger('Registration failed. Check your username and password.', {
+        duration: 10,
+      })}
       <Paragraph>Already a user? <Link to='/login'>Log in here.</Link></Paragraph>
     </Pane>
   )
