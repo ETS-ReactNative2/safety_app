@@ -1,17 +1,16 @@
-// import React from 'react'
-// import { LayerProps } from 'react-map-gl'
-
+//general cluster
 export const clusterLayer = {
   id: 'clusters',
   type: 'circle',
   source: 'reports',
   filter: ['has', 'point_count'],
   paint: {
-    'circle-color': ['step', ['get', 'point_count'], '#E06C9F', 10, '#f1f075', 50, '#f28cb1'],
-    'circle-radius': ['step', ['get', 'point_count'], 20, 100, 30, 750, 40]
+    'circle-color': ['step', ['get', 'point_count'], '#fd9d9d', 5, '#ffcb71', 10, '#F87145'],
+    'circle-radius': ['step', ['get', 'point_count'], 15, 5, 20, 10, 27]
   }
 }
 
+//how many reports?
 export const clusterCountLayer = {
   id: 'cluster-count',
   type: 'symbol',
@@ -23,13 +22,14 @@ export const clusterCountLayer = {
   }
 }
 
+//only one report point
 export const unclusteredPointLayer = {
   id: 'unclustered-point',
   type: 'circle',
   source: 'reports',
   filter: ['!', ['has', 'point_count']],
   paint: {
-    'circle-color': '#C47335',
+    'circle-color': '#184f7c',
     'circle-radius': 4,
     'circle-stroke-width': 1,
     'circle-stroke-color': '#fff'

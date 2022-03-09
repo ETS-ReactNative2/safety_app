@@ -20,7 +20,10 @@ const SideMenuNav = () => {
                 <Paragraph><Link to="/links" onClick={() => setIsOpen(false)}>Links & Helplines</Link></Paragraph>
                 <Paragraph><Link to="/substances" onClick={() => setIsOpen(false)}>Substances</Link></Paragraph>
                 {isUserAuthenticated() &&
-                    <Paragraph><Link to="/report" onClick={() => setIsOpen(false)}>Add spiking</Link></Paragraph>
+                    <>
+                        <Paragraph><Link to="/report" onClick={() => setIsOpen(false)}>Add spiking</Link></Paragraph>
+                        <Paragraph><Link to="/reportsdashboard" onClick={() => setIsOpen(false)}>Report Dasboard</Link></Paragraph>
+                    </>
                 }
                 {isUserAuthenticated()
                     &&

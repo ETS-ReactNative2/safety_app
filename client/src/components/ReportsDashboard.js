@@ -1,12 +1,15 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { Pane, Heading, Paragraph } from 'evergreen-ui'
+import { useNavigate } from 'react-router-dom'
+import { Pane, Heading, Paragraph, Button } from 'evergreen-ui'
 import Box from 'ui-box/dist/src/box'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import ReactMapGl, { Source, Layer } from 'react-map-gl'
-import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from './subcomponents/MapLayers'
+import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from '../helpers/mapLayers'
+import { isUserAuthenticated } from '../helpers/auth'
 
 const ReportsDashboard = () => {
+  const navigate = useNavigate()
 
   const [viewPort, setViewPort] = useState(null)
 
@@ -47,34 +50,41 @@ const ReportsDashboard = () => {
   return (
     <Pane className='report-page-container'>
       <Heading>Report Dashboard</Heading>
-      <Paragraph>Here you can discover reports in our database. All reports are anonymous.</Paragraph>
-      <Box className='map-container'>
-        <ReactMapGl
-          mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-          height='100%'
-          width='100%'
-          mapStyle="mapbox://styles/mapbox/streets-v11"
-          interactiveLayerIds={[clusterLayer.id]}
-          zoom={1}
-          {...viewPort}
-          onMove={e => setViewPort(e.viewState)}
-        >
-          <Source
-            id='reports'
-            type='geojson'
-            data={mapData}
-            cluster={true}
-            clusterMaxZoom={14}
-            clusterRadius={50}
+      <Paragraph>Here you can discover reports in our database.</Paragraph>
+      {isUserAuthenticated() ?
+        <Box className='map-container'>
+          <ReactMapGl
+            mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+            height='100%'
+            width='100%'
+            mapStyle="mapbox://styles/mapbox/streets-v11"
+            interactiveLayerIds={[clusterLayer.id]}
+            zoom={1}
+            {...viewPort}
+            onMove={e => setViewPort(e.viewState)}
           >
-            <Layer {...clusterLayer} />
-            <Layer {...clusterCountLayer} />
-            <Layer {...unclusteredPointLayer} />
-          </Source>
+            <Source
+              id='reports'
+              type='geojson'
+              data={mapData}
+              cluster={true}
+              clusterMaxZoom={14}
+              clusterRadius={50}
+            >
+              <Layer {...clusterLayer} />
+              <Layer {...clusterCountLayer} />
+              <Layer {...unclusteredPointLayer} />
+            </Source>
 
-        </ReactMapGl>
+          </ReactMapGl>
 
-      </Box>
+        </Box>
+        :
+        <Box className='not-user-error'>
+          <Heading>This is for logged in users only.</Heading>
+          <Button onClick={() => navigate('/register')}>Register</Button>
+        </Box>
+      }
 
     </Pane>
   )

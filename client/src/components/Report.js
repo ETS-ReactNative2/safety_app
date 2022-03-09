@@ -110,9 +110,10 @@ const Report = () => {
             value={report.spiking_method}
             onChange={handleChange}
             isInvalid={reportError.error}
+            required={true}
           />
           <TextInputField
-            label='Have you reported this spiking to the police?'
+            label='Did you report this spiking to the police?'
             description='Type Yes or No.'
             placeholder="Yes/No"
             maxLength={3}
@@ -120,6 +121,7 @@ const Report = () => {
             value={report.has_reported}
             onChange={handleChange}
             isInvalid={reportError.error}
+            required={true}
           />
           <SelectMenu
             options={substances.map((label, index) => ({ label, value: label }))}
@@ -156,6 +158,7 @@ const Report = () => {
                 value={searchValues.search}
                 onChange={handleSearchValues}
                 isInvalid={reportError.error}
+                required={true}
               />
               <Button onClick={submitSearch}>Search</Button>
             </Box>
@@ -166,9 +169,8 @@ const Report = () => {
         </Box>
         :
 
-        <Box>
+        <Box className='not-user-error'>
           <Heading>This is for logged in users only.</Heading>
-          <Box className='not-found'></Box>
           <Button onClick={() => navigate('/register')}>Register</Button>
         </Box>
       }
