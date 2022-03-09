@@ -100,7 +100,7 @@ const Report = () => {
     <Pane className='form report-form' onSubmit={handleSubmit}>
       {isUserAuthenticated() ?
         <Box className='form'>
-          <Heading>Report your spiking</Heading>
+          <Heading fontFamily='DM Serif Display'>Spiking report</Heading>
           <Paragraph>This will stay anonymous and will never be shared to third parties.</Paragraph>
           <TextInputField
             label='How were you spiked?'
@@ -170,7 +170,7 @@ const Report = () => {
         :
 
         <Box className='not-user-error'>
-          <Heading>This is for logged in users only.</Heading>
+          <Heading fontFamily='DM Serif Display'>This is for logged in users only.</Heading>
           <Button onClick={() => navigate('/register')}>Register</Button>
         </Box>
       }

@@ -13,27 +13,27 @@ const SideMenuNav = () => {
         <Pane className='navbar-container'>
             <SideSheet isShown={isOpen} onCloseComplete={() => setIsOpen(false)} width={200} className='side-sheet'>
                 {!isUserAuthenticated() &&
-                    <Paragraph><Link to="/login" onClick={() => setIsOpen(false)}>Login</Link></Paragraph>
+                    <Paragraph fontFamily='DM Serif Display'><Link to="/login" onClick={() => setIsOpen(false)}>Login</Link></Paragraph>
                 }
-                <Paragraph><Link to="/symptomchecker" onClick={() => setIsOpen(false)}>Symptom Checker</Link></Paragraph>
-                <Paragraph><Link to="/resources" onClick={() => setIsOpen(false)}>Resources</Link></Paragraph>
-                <Paragraph><Link to="/links" onClick={() => setIsOpen(false)}>Links & Helplines</Link></Paragraph>
-                <Paragraph><Link to="/substances" onClick={() => setIsOpen(false)}>Substances</Link></Paragraph>
+                <Paragraph fontFamily='DM Serif Display'><Link to="/symptomchecker" onClick={() => setIsOpen(false)}>Symptom Checker</Link></Paragraph>
+                <Paragraph fontFamily='DM Serif Display'><Link to="/resources" onClick={() => setIsOpen(false)}>Resources</Link></Paragraph>
+                <Paragraph fontFamily='DM Serif Display'><Link to="/links" onClick={() => setIsOpen(false)}>Links & Helplines</Link></Paragraph>
+                <Paragraph fontFamily='DM Serif Display'><Link to="/substances" onClick={() => setIsOpen(false)}>Substances</Link></Paragraph>
                 {isUserAuthenticated() &&
                     <>
-                        <Paragraph><Link to="/report" onClick={() => setIsOpen(false)}>Add spiking</Link></Paragraph>
-                        <Paragraph><Link to="/reportsdashboard" onClick={() => setIsOpen(false)}>Report Dasboard</Link></Paragraph>
+                        <Paragraph fontFamily='DM Serif Display'><Link to="/report" onClick={() => setIsOpen(false)}>Add spiking</Link></Paragraph>
+                        <Paragraph fontFamily='DM Serif Display'><Link to="/reportsdashboard" onClick={() => setIsOpen(false)}>Report Dasboard</Link></Paragraph>
                     </>
                 }
                 {isUserAuthenticated()
                     &&
-                    <Paragraph><Link to="/" onClick={() => {
+                    <Paragraph fontFamily='DM Serif Display'><Link to="/" onClick={() => {
                         setIsOpen(false)
                         handleLogout()
                     }}>Logout</Link></Paragraph>
                 }
             </SideSheet>
-            <Heading><Link to='/'>SafetyApp</Link></Heading>
+            <Heading fontFamily='DM Serif Display'><Link to='/'>SafetyApp</Link></Heading>
             <Button onClick={() => setIsOpen(true)}><MenuIcon /></Button>
         </Pane>
     )

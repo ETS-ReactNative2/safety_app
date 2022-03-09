@@ -40,7 +40,7 @@ const Login = () => {
 
   return (
     <Pane is='form' onSubmit={handleSubmit} className='form'>
-      <Heading>Login</Heading>
+      <Heading fontFamily='DM Serif Display'>Login</Heading>
       <TextInput
         label="Email"
         placeholder="Email"

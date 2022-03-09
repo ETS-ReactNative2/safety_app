@@ -50,7 +50,7 @@ const Register = () => {
 
   return (
     <Pane is='form' onSubmit={handleSubmit} className='form'>
-      <Heading>Register</Heading>
+      <Heading fontFamily='DM Serif Display'>Register</Heading>
       <TextInput
         label="Username"
         placeholder="Username"

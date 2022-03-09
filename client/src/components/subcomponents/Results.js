@@ -16,14 +16,14 @@ const Results = ({ matches, selected, resetState }) => {
   return (
     <Pane>
       <Box className='result-container'>
-        <Heading>Your results</Heading>
+        <Heading fontFamily='DM Serif Display'>Your results</Heading>
         <Box className='matches-container'>
           <Text>Based on your symptoms, we think you might have been spiked with:</Text>
 
           {!!matches ?
             matches.map((match, index) => {
               return <Box key={index - 10}>
-                <Paragraph><Strong>{match.name}</Strong> - matches:</Paragraph>
+                <Paragraph><Strong fontFamily='DM Serif Display'>{match.name}</Strong> - matches:</Paragraph>
                 <Box>
                   {match.symptoms.map((symptom, index) => {
                     return selected.includes(symptom) && <Badge color='#E06C9F' key={index + 13}>{symptomsArr[symptom - 1]}</Badge>
@@ -36,13 +36,13 @@ const Results = ({ matches, selected, resetState }) => {
 
         </Box>
         <Box>
-          <Heading>What to do now?</Heading>
+          <Heading fontFamily='DM Serif Display'>What to do now?</Heading>
           <ArrowRightIcon /> <Text>Report, report, report!</Text>
           <Paragraph>Spiking is a criminal offense, whether it happened now, recently or months ago. </Paragraph>
           <Text><Link href='/resources'>CLICK HERE</Link> for full list of actions in case of an emergency</Text>
         </Box>
         <Box>
-          <Heading>Want to know more about these substances?</Heading>
+          <Heading fontFamily='DM Serif Display'>Want to know more about these substances?</Heading>
           <Text>We listed the most commonly used spiking substances.</Text>
           <Button onClick={() => navigate('/substances')}>Substances</Button>
         </Box>

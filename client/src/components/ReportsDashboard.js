@@ -49,7 +49,7 @@ const ReportsDashboard = () => {
 
   return (
     <Pane className='report-page-container'>
-      <Heading>Report Dashboard</Heading>
+      <Heading fontFamily='DM Serif Display'>Report Dashboard</Heading>
       <Paragraph>Here you can discover reports in our database.</Paragraph>
       {isUserAuthenticated() ?
         <Box className='map-container'>
@@ -57,7 +57,7 @@ const ReportsDashboard = () => {
             mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
             height='100%'
             width='100%'
-            mapStyle="mapbox://styles/mapbox/streets-v11"
+            mapStyle="mapbox://styles/essikarj/cl0jxwvsc000k14mrzpxr4a5n"
             interactiveLayerIds={[clusterLayer.id]}
             zoom={1}
             {...viewPort}

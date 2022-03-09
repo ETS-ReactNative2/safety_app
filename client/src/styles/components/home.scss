@@ -1,49 +1,82 @@
 .home-container {
-  max-width: 100vw;
+  max-width: 100%;
   min-height: 100vh;
   button {
     background-color: $primary;
   }
   .hero {
-    width: 99vw;
-    height: 43vh;
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
-    padding-right: 15%;
+    align-items: center;
+    .main-logo {
+      font-size: 10vh;
+      margin-bottom: 100px;
+      color: $txt-color;
+    }
   }
   .home-mid-section {
+    background-color: white;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    div {
-      width: 50%;
-      margin: 10px;
-    }
-    .home-symptom-container {
-      width: 300px;
+    min-height: 700px;
+    padding: 0 50px 20px 50px;
+    .home-symptomchecker,
+    .home-resources {
+      min-height: 200px;
+      width: 100%;
       display: flex;
       flex-direction: row;
+      margin: 20px 0;
+    }
+    .home-resources {
+      justify-content: end;
+    }
+    .home-symptomchecker-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .home-resources-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      text-align: right;
+    }
+    .home-register {
+      display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      div {
-        width: 52vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        height: 32vh;
-      }
-      .image {
-        width: 150px;
-        height: 150px;
-        background: url("../../../public/symptomIcon.png");
-        background-repeat: none;
-        background-position: center;
-        background-size: cover;
-        padding: 10px;
-      }
+      text-align: center;
+      padding: 20px 0;
+      border: 2px solid $txt-color;
+      border-style: solid none;
+      width: 100%;
     }
   }
+}
+
+.home-image {
+  margin: 30px;
+  width: 50%;
+  background-image: url(../../../public/images/symptomIcon.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#helpline-image {
+  background-image: url(../../../public/images/helplineIcon.png);
+}
+.home-buttons {
+  color: black;
+  margin-top: 15px;
 }

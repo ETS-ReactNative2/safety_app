@@ -6,10 +6,10 @@ const LinkPage = () => {
 
   return (
     <Pane className='links-container'>
-      <Heading>Links & Helplines</Heading>
+      <Heading fontFamily='DM Serif Display'>Links & Helplines</Heading>
       <Paragraph>On this page you can discover links and helplines to various organisations that offer help and support for victims and witnesses of spikings.</Paragraph>
       <Box>
-        <Heading>Links:</Heading>
+        <Heading fontFamily='DM Serif Display'>Links:</Heading>
         <Paragraph><Link href='https://www.talktofrank.com/'>talktofrank.com</Link> - Information about drugs</Paragraph>
         <Paragraph><Link href='https://www.nhs.uk/conditions/first-aid/'>NHS First Aid</Link> - Guide for first aid</Paragraph>
         <Paragraph><Link href='https://www.victimsupport.org.uk/'>victimsupport.org</Link> - Victim Support helps and offers support anyone faced with crime or traumatic events in England & Wales</Paragraph>
@@ -23,7 +23,7 @@ const LinkPage = () => {
         <Paragraph><Link href='https://www.rcne.com/'>rcne.com</Link> - Rape Crisis Network Europe is a great source with links to each European country’s helpline and relevant websites to offer help and support for victims of sexual violence. This website is also supported by Google translate features.</Paragraph>
       </Box>
       <Box>
-        <Heading>Helplines:</Heading>
+        <Heading fontFamily='DM Serif Display'>Helplines:</Heading>
         <Box><Text>Rape Crisis Charity (UK)</Text>
           <Ul>
             <Li>0808 802 9999 (England and Wales, 12-2.30 pm and 7-9.30 pm every day)</Li>

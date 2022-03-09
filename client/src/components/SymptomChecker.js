@@ -49,7 +49,8 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
 
 
   //JSX pages - Symptom form
-  const StepOne = () => <Pane>
+  const StepOne = () => <Pane className='step-container'>
+    <Heading fontFamily='DM Serif Display'>Step 1/3</Heading>
     <Paragraph>First things first. This is created to give you support if you or someone you know have been spiked and the results are for guidance only. However all spikings should be reported to the local police as soon as possible.</Paragraph>
     <Switch
       checked={understoodChecked}
@@ -60,7 +61,8 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
   </Pane>
 
 
-  const StepTwo = () => <Pane>
+  const StepTwo = () => <Pane className='step-container'>
+    <Heading fontFamily='DM Serif Display'>Step 2/3</Heading>
     <Text>Let's check in on few important things next.</Text>
     <Paragraph>Check all the boxes once you're done, even if you didn't have to do anything.</Paragraph>
     <Checkbox
@@ -83,7 +85,8 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
 
 
 
-  const StepThree = () => <Pane>
+  const StepThree = () => <Pane className='step-container'>
+    <Heading fontFamily='DM Serif Display'>Step 3/3</Heading>
     <Paragraph>Last step. Symptoms, click all that apply. (min. 3)</Paragraph>
     {symptomsArr.map((item, index) => {
       const isSelected = selected.includes(index + 1)
@@ -91,7 +94,7 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
       return <Button
         key={index}
         onClick={() => handleSelect(index + 1)}
-        style={{ border: `2px solid ${isSelected ? 'navy' : 'white'}` }}
+        style={{ border: `2px solid ${isSelected ? '#141414' : '#c9bcb8'}`, backgroundColor: '#c9bcb8' }}
       >
         <strong color={isSelected ? 'white' : 'black'}>{item} {isSelected ? '-' : '+'}</strong>
       </Button>
@@ -101,8 +104,8 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
   </Pane>
 
   const StepFour = () => (
-    <Pane>
-      <Heading>Getting your results...</Heading>
+    <Pane className='step-container'>
+      <Heading fontFamily='DM Serif Display'>Getting your results...</Heading>
       {<Spinner />}
     </Pane>
   )
@@ -110,7 +113,7 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
 
   return (
     <Pane>
-      <Heading>Symptom Checker</Heading>
+      <Heading fontFamily='DM Serif Display'>Symptom Checker</Heading>
       <div className='symptom-slides-container'>
         {steps === 0 && <StepOne />}
         {steps === 1 && <StepTwo />}

@@ -7,14 +7,45 @@
 * {
   box-sizing: border-box;
   color: $txt-color;
+  margin: 0;
+}
+
+body {
+  background-image: url(../../public/images/hero-bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.special {
+  font-family: "DM Serif Display", serif;
 }
 .app-container {
   min-height: 100vh;
   max-width: 100vw;
-  background-color: #dbd9d9;
 }
 
 .symptoms-slides-container {
   width: 300px;
   min-height: 100vh;
+}
+
+//big screens
+@media screen and (min-width: 768px) {
+  .home-symptomchecker,
+  .home-resources {
+    padding: 50px 40px;
+    .home-image {
+      height: 200px;
+    }
+  }
+  .home-register {
+    padding: 60px 0;
+  }
+}
+
+//mobile screens
+@media screen and (max-width: 600px) {
+  .web-only {
+    display: none;
+  }
 }

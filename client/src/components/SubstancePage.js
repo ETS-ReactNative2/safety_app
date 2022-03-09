@@ -27,7 +27,8 @@ const SubstancePage = () => {
 
   return (
     <Pane className='substance-container'>
-      <Heading>Common spiking substances</Heading>
+      <Heading fontFamily='DM Serif Display'>Substances</Heading>
+      <Text>These are the most common spiking substances.</Text>
       <Box className='information-container'>
         {substances.length ?
           substances.map((item, index) => {
@@ -36,7 +37,7 @@ const SubstancePage = () => {
                 <Popover
                   content={
                     <Pane margin={10} width={300} display="flex" alignItems="center" justifyContent="center" flexDirection="column">
-                      <Heading>{item.name}</Heading>
+                      <Heading fontFamily='DM Serif Display'>{item.name}</Heading>
                       <Text>Class: {item.drug_class}</Text>
                       <Text>Duration: {item.duration}</Text>
                       <Box>
@@ -49,7 +50,7 @@ const SubstancePage = () => {
                     </Pane>
                   }
                 >
-                  <Box className='substance-button'><Text>{item.name}</Text></Box>
+                  <Box className='substance-button'><Text fontFamily='DM Serif Display'>{item.name}</Text></Box>
                 </Popover>
               </>
             )

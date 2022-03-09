@@ -8,7 +8,7 @@ const Resources = () => {
   return (
     <Pane>
       <Box>
-        <Heading>What to do if you or someone else is spiked and/or assaulted?</Heading>
+        <Heading fontFamily='DM Serif Display'>What to do if you or someone else is spiked and/or assaulted?</Heading>
         <Box>
           <Ul>
             <Li>Call the emergency number in your country. Europe(general): 112, UK: 999, US: 911</Li>
@@ -22,21 +22,21 @@ const Resources = () => {
         </Box>
       </Box>
       <Box>
-        <Heading>Links and helplines</Heading>
+        <Heading fontFamily='DM Serif Display'>Links and helplines</Heading>
         <Button onClick={() => navigate('/links')}>Click here</Button>
       </Box>
       <Box>
-        <Heading>Most common spiking substances</Heading>
+        <Heading fontFamily='DM Serif Display'>Most common spiking substances</Heading>
         <Button onClick={() => navigate('/substances')}>Click here</Button>
       </Box>
       <Box>
-        <Heading>Tips for dealing with drug comedown/</Heading>
+        <Heading fontFamily='DM Serif Display'>Tips for dealing with drug comedown/</Heading>
         <Ol>
           <Li>Drink liquids! Water or orange juice with vitamin C. </Li>
           <Popover
             content={
               <Pane width={200} height={200} padding={6} display="flex" alignItems="center" justifyContent="center" flexDirection="column">
-                <Heading>MDMA/Ecstacy</Heading>
+                <Heading fontFamily='DM Serif Display'>MDMA/Ecstacy</Heading>
                 <Paragraph>If you think you have been spiked with ecstasy(MDMA), drinking too much water can be dangerous. Max. 1 big glass of water per hour.</Paragraph>
               </Pane>
             }>
