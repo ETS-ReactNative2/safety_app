@@ -12,6 +12,7 @@ from django.core.exceptions import FieldError
 
 # Create your views here.
 
+
 class ReportListView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly, )
 
@@ -34,8 +35,22 @@ class ReportListView(APIView):
         except FieldError as error:
             print(error)
             return Response("Invalid field", status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-        # except:
-        #     return Response("Unprocessable Entity", status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+# class ReportOwnedListView(APIView):
+
+#     def get(self, _request):
+#         permission_classes = (IsAuthenticatedOrReadOnly, )
+
+#         try:
+#             reports = Report.objects.get(pk=pk)
+#             if reports.owner != request.user:
+#                 raise PermissionDenied(detail="Unauthorized")
+#             serialized_reports = PopulatedReportSerializer(reports, many=True)
+#             return Response(serialized_reports.data, status=status.HTTP_200_OK)
+#         except Report.DoesNotExist:
+#             raise NotFound(detail="Report not found")
+
 
 class ReportDetailView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly, )
@@ -66,7 +81,8 @@ class ReportDetailView(APIView):
             print(report_to_update)
             if report_to_update.owner != request.user:
                 raise PermissionDenied(detail="Unauthorized")
-            serialized_report_to_update = ReportSerializer(report_to_update, data=request.data, partial=True)
+            serialized_report_to_update = ReportSerializer(
+                report_to_update, data=request.data, partial=True)
             if serialized_report_to_update.is_valid():
                 serialized_report_to_update.save()
                 return Response(serialized_report_to_update.data, status=status.HTTP_200_OK)

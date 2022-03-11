@@ -1,10 +1,19 @@
-.navbar-container{
+.navbar-container {
   display: flex;
   justify-content: space-between;
   position: sticky;
   text-decoration: none;
   padding: 5px;
-  .side-sheet{
-    background-color: $accent-color;
+}
+
+.side-sheet {
+  padding: 20px;
+  a {
+    font-size: large;
+    text-decoration: none;
+    line-height: 25px;
+  }
+  a:hover {
+    text-decoration: underline;
   }
 }

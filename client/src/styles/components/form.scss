@@ -1,16 +1,14 @@
-
-.form{
+.form {
   height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20px auto;
-  input{
+  input {
     margin-top: 10px;
   }
-  button{
-    background-color: $primary;
+  button {
     width: 180px;
     margin: 15px;
   }

@@ -50,7 +50,7 @@ const Register = () => {
 
   return (
     <Pane is='form' onSubmit={handleSubmit} className='form'>
-      <Heading fontFamily='DM Serif Display'>Register</Heading>
+      <Heading fontFamily='DM Serif Display' fontSize='x-large'>Register</Heading>
       <TextInput
         label="Username"
         placeholder="Username"
@@ -89,7 +89,7 @@ const Register = () => {
         value={form.password_confirmation}
         isInvalid={formError.password_confirmation || formError.registerError}
       />
-      <Button onClick={handleSubmit} disabled={formError.password || formError.registerError}>Register</Button>
+      <button className='frost' onClick={handleSubmit} disabled={formError.password || formError.registerError}>Register</button>
       {formError.registerError && toaster.danger('Registration failed. Check your username and password.', {
         duration: 10,
       })}

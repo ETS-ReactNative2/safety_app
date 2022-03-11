@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Pane, Button, Paragraph, Heading, Checkbox, Text, Switch, ArrowRightIcon, Spinner } from 'evergreen-ui'
-// import { Box } from 'ui-box'
+//import { Box } from 'ui-box'
 import { symptomsArr } from '../helpers/constants'
 
 const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
@@ -51,13 +51,19 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
   //JSX pages - Symptom form
   const StepOne = () => <Pane className='step-container'>
     <Heading fontFamily='DM Serif Display'>Step 1/3</Heading>
-    <Paragraph>First things first. This is created to give you support if you or someone you know have been spiked and the results are for guidance only. However all spikings should be reported to the local police as soon as possible.</Paragraph>
+    <Paragraph marginBottom={15}>First things first. <br />This is created to give you guidance if you or someone you know have been spiked. However, all spikings should be reported to the local police as soon as possible.</Paragraph>
+
+    <Text>Guidance only, got it.</Text>
     <Switch
+      className='switch'
       checked={understoodChecked}
       onChange={e => setUnderstoodChecked(e.target.checked)}
+      marginBottom={20}
     />
-    <Text>Guidance only, got it.</Text>
-    {understoodChecked && <Button onClick={() => setSteps(1)} iconAfter={ArrowRightIcon}>Next</Button>}
+    <Pane height={40}>
+      {understoodChecked && <button className='frost' onClick={() => setSteps(1)} iconAfter={ArrowRightIcon}>Next</button>}
+    </Pane>
+    <Pane className='symptomchecker-image web-only'></Pane>
   </Pane>
 
 
@@ -69,6 +75,7 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
       label='If the person spiked (you or someone else) is feeling nauseous make sure they are laying sideways to avoid choking.'
       checked={actionsChecked.first}
       onChange={e => setActionsChecked({ ...actionsChecked, first: e.target.checked })}
+      appearance='default'
     />
     <Checkbox
       label='If the person spiked (you or someone else) is losing responsiveness, CALL HELP and check their breathing.'
@@ -80,40 +87,48 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
       checked={actionsChecked.third}
       onChange={e => setActionsChecked({ ...actionsChecked, third: e.target.checked })}
     />
-    {actionsChecked.first && actionsChecked.second && actionsChecked.third && <Button onClick={() => setSteps(2)} iconAfter={ArrowRightIcon}>Next</Button>}
+    <Pane height={40}>
+      {actionsChecked.first && actionsChecked.second && actionsChecked.third && <button onClick={() => setSteps(2)} iconAfter={ArrowRightIcon} className='frost'>Next</button>}
+    </Pane>
   </Pane>
 
 
 
   const StepThree = () => <Pane className='step-container'>
     <Heading fontFamily='DM Serif Display'>Step 3/3</Heading>
-    <Paragraph>Last step. Symptoms, click all that apply. (min. 3)</Paragraph>
-    {symptomsArr.map((item, index) => {
-      const isSelected = selected.includes(index + 1)
+    <Paragraph>Last step. Symptoms, click all that apply. (min. 2)</Paragraph>
+    <Pane className='symptom-buttons'>
+      {symptomsArr.map((item, index) => {
+        const isSelected = selected.includes(index + 1)
 
-      return <Button
-        key={index}
-        onClick={() => handleSelect(index + 1)}
-        style={{ border: `2px solid ${isSelected ? '#141414' : '#c9bcb8'}`, backgroundColor: '#c9bcb8' }}
-      >
-        <strong color={isSelected ? 'white' : 'black'}>{item} {isSelected ? '-' : '+'}</strong>
-      </Button>
-    })}
-    {understoodChecked && actionsChecked.first && actionsChecked.second && actionsChecked.third && selected.length >= 3
-      && <Button iconAfter={ArrowRightIcon} onClick={handleSubmit}>Take me to my results</Button>}
+        return <button
+          key={index}
+          onClick={() => handleSelect(index + 1)}
+          size='small'
+          className={`symptom-button ${isSelected && 'selected'}`}
+        >
+          <strong color={isSelected ? '#46b9d6b7' : 'black'}>{item} {isSelected ? '-' : '+'}</strong>
+          <div className={`frost-background ${isSelected && 'frost-selected'}`} />
+        </button>
+      })}
+    </Pane>
+    <Pane height={40} marginBottom={10}>
+      {understoodChecked && actionsChecked.first && actionsChecked.second && actionsChecked.third && selected.length >= 2
+        && <button iconAfter={ArrowRightIcon} onClick={handleSubmit} className='frost'>Results</button>}
+    </Pane>
   </Pane>
 
   const StepFour = () => (
-    <Pane className='step-container'>
-      <Heading fontFamily='DM Serif Display'>Getting your results...</Heading>
+    <Pane className='step-container step-four slide-out-left'>
+      <Heading fontFamily='DM Serif Display' fontSize='large' marginBottom={10}>Getting your results...</Heading>
       {<Spinner />}
     </Pane>
   )
 
 
   return (
-    <Pane>
-      <Heading fontFamily='DM Serif Display'>Symptom Checker</Heading>
+    <Pane className='symptom-container'>
+      <Heading fontFamily='DM Serif Display' fontSize='x-large'>Symptom Checker</Heading>
       <div className='symptom-slides-container'>
         {steps === 0 && <StepOne />}
         {steps === 1 && <StepTwo />}

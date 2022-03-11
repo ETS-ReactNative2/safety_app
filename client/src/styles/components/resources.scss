@@ -1,0 +1,32 @@
+.resources-container {
+  padding: 20px;
+  a {
+    color: rgb(168, 24, 120);
+  }
+  .resources-help {
+    gap: 10px;
+    margin-bottom: 50px;
+  }
+}
+
+.resources-helplines {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  .resources-helplines-image {
+    height: 100px;
+    width: 100px;
+    background-image: url("../../images/helplineIcon.png");
+    background-repeat: none;
+    background-size: contain;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .resources-container {
+    padding: 40px;
+  }
+  .resources-helplines-image {
+    margin-right: 50px;
+  }
+}

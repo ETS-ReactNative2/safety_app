@@ -1,5 +1,27 @@
-$txt-color: #141414;
-$primary: #c9bcb8;
-$accent-color: #184f7c;
-$secondary-color: #e7c3c3;
-$base-color: #ffffff;
+$txt-color: #000000;
+$link-color: #a81878;
+$other-color: #ff8e8e;
+
+%box-shadow {
+  -webkit-box-shadow: 6px 6px 12px -10px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 6px 6px 12px -10px rgba(0, 0, 0, 0.52);
+  box-shadow: 6px 6px 12px -10px rgba(0, 0, 0, 0.52);
+}
+
+%frost-button {
+  background-color: #00000000;
+  border: none;
+  outline: none;
+  font-size: 22px;
+  padding: 0;
+  letter-spacing: 2.4px;
+  font-family: DM Serif Display;
+  font-weight: 100;
+  opacity: 0.7;
+  color: #000000c7;
+}
+
+%frost-button-hover {
+  opacity: 0.3;
+  font-style: italic;
+}

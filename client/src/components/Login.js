@@ -40,7 +40,7 @@ const Login = () => {
 
   return (
     <Pane is='form' onSubmit={handleSubmit} className='form'>
-      <Heading fontFamily='DM Serif Display'>Login</Heading>
+      <Heading fontFamily='DM Serif Display' fontSize='x-large'>Login</Heading>
       <TextInput
         label="Email"
         placeholder="Email"
@@ -58,7 +58,7 @@ const Login = () => {
         onChange={handleChange}
         isInvalid={formError}
       />
-      <Button onClick={handleSubmit} disabled={formError}>Login</Button>
+      <button onClick={handleSubmit} disabled={formError} className='frost'>Login</button>
       {formError && toaster.danger('Something went wrong. Login failed.', {
         duration: 10,
       })}

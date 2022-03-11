@@ -5,7 +5,7 @@ export const clusterLayer = {
   source: 'reports',
   filter: ['has', 'point_count'],
   paint: {
-    'circle-color': ['step', ['get', 'point_count'], '#fd9d9d', 5, '#ffcb71', 10, '#F87145'],
+    'circle-color': ['step', ['get', 'point_count'], '#ff8e8e', 5, '#ffcb71', 10, '#F87145'],
     'circle-radius': ['step', ['get', 'point_count'], 15, 5, 20, 10, 27]
   }
 }
@@ -29,7 +29,7 @@ export const unclusteredPointLayer = {
   source: 'reports',
   filter: ['!', ['has', 'point_count']],
   paint: {
-    'circle-color': '#184f7c',
+    'circle-color': '#a81878',
     'circle-radius': 4,
     'circle-stroke-width': 1,
     'circle-stroke-color': '#fff'

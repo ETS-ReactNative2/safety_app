@@ -1,0 +1,29 @@
+.report-form {
+  padding: 20px;
+  * {
+    width: 250px;
+    margin-bottom: 0;
+  }
+
+  button {
+    width: 180px;
+    margin: 15px;
+  }
+  .search-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .report-form {
+    .form {
+      padding-top: 20px;
+      input {
+        width: 270px;
+      }
+    }
+  }
+}

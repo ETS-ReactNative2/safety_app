@@ -8,11 +8,11 @@ import {
   Paragraph,
   toaster,
   TextInputField,
-  ApplicationIcon,
   SelectMenu,
   SearchInput,
   Popover,
-  Text
+  Text,
+  Position
 } from 'evergreen-ui'
 import Box from 'ui-box/dist/src/box'
 //import 'mapbox-gl/dist/mapbox-gl.css'
@@ -97,14 +97,13 @@ const Report = () => {
   }
 
   return (
-    <Pane className='form report-form' onSubmit={handleSubmit}>
+    <Pane className='report-form form' onSubmit={handleSubmit}>
       {isUserAuthenticated() ?
         <Box className='form'>
-          <Heading fontFamily='DM Serif Display'>Spiking report</Heading>
-          <Paragraph>This will stay anonymous and will never be shared to third parties.</Paragraph>
+          <Heading fontFamily='DM Serif Display' fontSize='x-large' marginBottom={30}>Spiking report</Heading>
+          <Text color='black' fontSize='small' marginBottom={20}>This will stay anonymous and will never be shared to third parties.</Text>
           <TextInputField
             label='How were you spiked?'
-            description='Drink, injection?'
             placeholder='Spiking method'
             name='spiking_method'
             value={report.spiking_method}
@@ -114,7 +113,6 @@ const Report = () => {
           />
           <TextInputField
             label='Did you report this spiking to the police?'
-            description='Type Yes or No.'
             placeholder="Yes/No"
             maxLength={3}
             name='has_reported'
@@ -127,17 +125,19 @@ const Report = () => {
             options={substances.map((label, index) => ({ label, value: label }))}
             selected={selected}
             onSelect={(item) => setSelected(item.value)}
+            margin={20}
           >
-            <Button onClick={() => { }}>{selected ?? 'Select substance...'}</Button>
+            <button className='frost' onClick={() => { }}>{selected ?? 'Select substance...'}</button>
           </SelectMenu>
+
           <TextInputField
             label='Where did this happen?'
-            description='Club, bar, restaurant, etc. (not reqruired)'
-            placeholder='Place'
+            placeholder='Bar, restaurant, etc.'
             name='incident_place'
             value={report.incident_place}
             onChange={handleChange}
             isInvalid={reportError.error}
+            marginTop={20}
           />
 
           <Popover
@@ -145,27 +145,31 @@ const Report = () => {
               <Pane width={250} margin={7} display="flex" alignItems="center" justifyContent="center" flexDirection="column">
                 {!!resultsOptions.length &&
                   resultsOptions.map((result, index) => {
-                    return <Text onClick={handleSearch} key={index} margin={2}>{result.place_name}</Text>
+                    return <Text onClick={handleSearch} key={index} margin={4}>{result.place_name}</Text>
                   })
                 }
               </Pane>
             }
+            position={Position.TOP}
           >
             <Box className='search-input'>
+              <Paragraph fontSize={14} fontWeight={500}>Location</Paragraph>
               <SearchInput
+                label='Location'
                 placeholder='Search'
                 name='search'
                 value={searchValues.search}
                 onChange={handleSearchValues}
                 isInvalid={reportError.error}
                 required={true}
+                marginBottom={10}
               />
               <Button onClick={submitSearch}>Search</Button>
             </Box>
           </Popover>
 
 
-          <Button iconAfter={ApplicationIcon} onClick={handleSubmit}>Submit your report</Button>
+          <button className='frost' onClick={handleSubmit}>Submit</button>
         </Box>
         :
 

@@ -6,10 +6,13 @@ import Box from 'ui-box/dist/src/box'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import ReactMapGl, { Source, Layer } from 'react-map-gl'
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from '../helpers/mapLayers'
-import { isUserAuthenticated } from '../helpers/auth'
+import { isUserAuthenticated, getTokenFromLocal } from '../helpers/auth'
+
 
 const ReportsDashboard = () => {
   const navigate = useNavigate()
+
+  const user = getTokenFromLocal()
 
   const [viewPort, setViewPort] = useState(null)
 
@@ -47,10 +50,27 @@ const ReportsDashboard = () => {
     })
   }, [])
 
+  const percentageReportCalculator = () => {
+    const reportedYes = reportData.filter(report => report.has_reported.toLowerCase() === 'yes')
+    return (reportedYes.length / reportData.length * 100).toFixed(2)
+  }
+
+  const getAllOwnedReports = () => {
+    const ownedReports = reportData.filter(report => report.owner === user)
+    return ownedReports.length
+  }
+
   return (
     <Pane className='report-page-container'>
-      <Heading fontFamily='DM Serif Display'>Report Dashboard</Heading>
-      <Paragraph>Here you can discover reports in our database.</Paragraph>
+      <Heading fontFamily='DM Serif Display' fontSize='x-large' marginBottom={20}>Report Dashboard</Heading>
+      {/* <Paragraph color='black' fontSize='medium'>Here you can discover reports in our database.</Paragraph> */}
+      {!!reportData.length &&
+        <Box className='statistics'>
+          <Heading color='black'>Total reports:<br /><span className='statistics-number'>{reportData.length}</span></Heading>
+          <Heading color='black'>Reported to the police:<br /><span className='statistics-number'>{percentageReportCalculator()}%</span></Heading>
+          {/* <Heading color='black'>Your reports:<br /><span className='statistics-number'>{getAllOwnedReports()}</span></Heading> */}
+        </Box>}
+
       {isUserAuthenticated() ?
         <Box className='map-container'>
           <ReactMapGl

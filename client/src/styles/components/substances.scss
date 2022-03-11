@@ -1,0 +1,50 @@
+.substances-container {
+  padding: 20px;
+  .information-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: right;
+  }
+}
+.substance-popover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  a {
+    color: $link-color;
+    padding: 10px auto;
+  }
+}
+
+.substance-button:hover {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.substance-page-image {
+  height: 150px;
+  background-image: url("../../images/drugIcon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media screen and (min-width: 768px) {
+  .substances-container {
+    padding: 80px;
+    text-align: center;
+    .information-container {
+      text-align: center;
+    }
+  }
+  .substance-page-image {
+    margin-left: 50px;
+  }
+  .substance-popover {
+    height: 300px;
+    width: 400px;
+    position: static;
+    margin-right: 100px;
+  }
+}

@@ -2,7 +2,10 @@
   max-width: 100%;
   min-height: 100vh;
   button {
-    background-color: $primary;
+    margin-top: 15px;
+  }
+  a {
+    color: $link-color;
   }
   .hero {
     width: 100%;
@@ -57,8 +60,9 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px 0;
-      border: 2px solid $txt-color;
+      padding: 40px 0;
+      margin: 30px 0;
+      border: 1px solid $txt-color;
       border-style: solid none;
       width: 100%;
     }
@@ -66,17 +70,30 @@
 }
 
 .home-image {
-  margin: 30px;
+  margin: 10px;
   width: 50%;
-  background-image: url(../../../public/images/symptomIcon.png);
+  background-image: url(../../images/symptomIcon.png);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 #helpline-image {
-  background-image: url(../../../public/images/helplineIcon.png);
+  background-image: url(../../images/helplineIcon.png);
 }
 .home-buttons {
   color: black;
   margin-top: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .home-symptomchecker,
+  .home-resources {
+    padding: 50px 40px;
+    .home-image {
+      height: 200px;
+    }
+  }
+  .home-register {
+    padding: 60px 0;
+  }
 }
