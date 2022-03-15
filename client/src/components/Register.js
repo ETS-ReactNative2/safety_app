@@ -49,7 +49,7 @@ const Register = () => {
   }
 
   return (
-    <Pane is='form' onSubmit={handleSubmit} className='form'>
+    <Pane is='form' onSubmit={handleSubmit} className='form fade-in'>
       <Heading fontFamily='DM Serif Display' fontSize='x-large'>Register</Heading>
       <TextInput
         label="Username"
@@ -73,7 +73,7 @@ const Register = () => {
       <TextInput
         label="Password"
         type='password'
-        placeholder="Password"
+        placeholder="Password - min. 8 letters, 1 number"
         onChange={handleChange}
         minLength={8}
         name='password'

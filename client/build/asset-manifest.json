@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.09048167.css",
+    "main.js": "/static/js/main.41bbeea8.js",
+    "static/js/483.c2938693.chunk.js": "/static/js/483.c2938693.chunk.js",
+    "static/media/vertical-bg.png": "/static/media/vertical-bg.eee347804292e356c039.png",
+    "static/media/helplineIcon.png": "/static/media/helplineIcon.e5909a776b7cd1198168.png",
+    "static/media/alertIcon.png": "/static/media/alertIcon.2c8ad407c1cdd5f00522.png",
+    "static/media/symptomIcon.png": "/static/media/symptomIcon.d745c5b72248af921494.png",
+    "static/media/speakupIcon.png": "/static/media/speakupIcon.7cd299b69512a3220721.png",
+    "static/media/seeIcon.png": "/static/media/seeIcon.9af0aa78af66a1e6595c.png",
+    "static/media/drugIcon.png": "/static/media/drugIcon.f4a7ddf8c34959ff7d6a.png",
+    "index.html": "/index.html",
+    "main.09048167.css.map": "/static/css/main.09048167.css.map",
+    "main.41bbeea8.js.map": "/static/js/main.41bbeea8.js.map",
+    "483.c2938693.chunk.js.map": "/static/js/483.c2938693.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09048167.css",
+    "static/js/main.41bbeea8.js"
+  ]
+}

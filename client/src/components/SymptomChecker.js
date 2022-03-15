@@ -25,13 +25,11 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
       selected.filter(i => i !== index) :
       [...selected, index]
     )
-    console.log(selected)
   }
 
 
   const handleSubmit = async () => {
     const postChoices = { choices: [...selected] }
-    console.log(postChoices)
     try {
       const { data } = await axios.post('api/substances/matches/', postChoices)
       if (data.length) {
@@ -61,7 +59,7 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
       marginBottom={20}
     />
     <Pane height={40}>
-      {understoodChecked && <button className='frost' onClick={() => setSteps(1)} iconAfter={ArrowRightIcon}>Next</button>}
+      {understoodChecked && <button className='frost fade-in' onClick={() => setSteps(1)} iconAfter={ArrowRightIcon}>Next</button>}
     </Pane>
     <Pane className='symptomchecker-image web-only'></Pane>
   </Pane>
@@ -88,7 +86,7 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
       onChange={e => setActionsChecked({ ...actionsChecked, third: e.target.checked })}
     />
     <Pane height={40}>
-      {actionsChecked.first && actionsChecked.second && actionsChecked.third && <button onClick={() => setSteps(2)} iconAfter={ArrowRightIcon} className='frost'>Next</button>}
+      {actionsChecked.first && actionsChecked.second && actionsChecked.third && <button onClick={() => setSteps(2)} iconAfter={ArrowRightIcon} className='frost fade-in'>Next</button>}
     </Pane>
   </Pane>
 
@@ -119,7 +117,7 @@ const SymptomChecker = ({ matches, setMatches, selected, setSelected }) => {
   </Pane>
 
   const StepFour = () => (
-    <Pane className='step-container step-four slide-out-left'>
+    <Pane className='step-container step-four fade-out'>
       <Heading fontFamily='DM Serif Display' fontSize='large' marginBottom={10}>Getting your results...</Heading>
       {<Spinner />}
     </Pane>

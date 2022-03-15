@@ -52,22 +52,22 @@ const ReportsDashboard = () => {
 
   const percentageReportCalculator = () => {
     const reportedYes = reportData.filter(report => report.has_reported.toLowerCase() === 'yes')
-    return (reportedYes.length / reportData.length * 100).toFixed(2)
+    return (reportedYes.length / reportData.length * 100).toFixed(0)
   }
 
-  const getAllOwnedReports = () => {
-    const ownedReports = reportData.filter(report => report.owner === user)
-    return ownedReports.length
-  }
+  // const getAllOwnedReports = () => {
+  //   const ownedReports = reportData.filter(report => report.owner === user)
+  //   return ownedReports.length
+  // }
 
   return (
-    <Pane className='report-page-container'>
+    <Pane className='report-page-container fade-in'>
       <Heading fontFamily='DM Serif Display' fontSize='x-large' marginBottom={20}>Report Dashboard</Heading>
       {/* <Paragraph color='black' fontSize='medium'>Here you can discover reports in our database.</Paragraph> */}
       {!!reportData.length &&
         <Box className='statistics'>
           <Heading color='black'>Total reports:<br /><span className='statistics-number'>{reportData.length}</span></Heading>
-          <Heading color='black'>Reported to the police:<br /><span className='statistics-number'>{percentageReportCalculator()}%</span></Heading>
+          <Heading color='black'>Reported to the police:<br /><span className='statistics-number animation-delay'>{percentageReportCalculator()}%</span></Heading>
           {/* <Heading color='black'>Your reports:<br /><span className='statistics-number'>{getAllOwnedReports()}</span></Heading> */}
         </Box>}
 

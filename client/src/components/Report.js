@@ -48,14 +48,12 @@ const Report = () => {
   const handleChange = (e) => {
     setReportError({ error: false, message: '' })
     const newReport = { ...report, [e.target.name]: e.target.value }
-    console.log(newReport)
     setReport(newReport)
   }
 
   const handleSearchValues = (e) => setSearchValues({ ...searchValues, [e.target.name]: e.target.value })
 
   const handleSearch = (e) => {
-    console.log(searchValues)
     const { center } = resultsOptions[resultsOptions.findIndex(result => result.place_name === e.target.innerText)]
     setReport({ ...report, latitude: center[0], longitude: center[1], location: e.target.innerText })
     setSearchValues({ search: e.target.innerText })
@@ -76,7 +74,6 @@ const Report = () => {
   const handleSubmit = async (e) => {
     const substanceIndex = substances.indexOf(selected)
     setReport({ ...report, substance: (substanceIndex + 1) })
-    console.log(report)
     try {
       await axios.post('api/reports/all/', report, {
         headers: {
@@ -97,7 +94,7 @@ const Report = () => {
   }
 
   return (
-    <Pane className='report-form form' onSubmit={handleSubmit}>
+    <Pane className='report-form form fade-in' onSubmit={handleSubmit}>
       {isUserAuthenticated() ?
         <Box className='form'>
           <Heading fontFamily='DM Serif Display' fontSize='x-large' marginBottom={30}>Spiking report</Heading>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Pane, Heading, TextInput, Button, Paragraph, toaster } from 'evergreen-ui'
+import { Pane, Heading, TextInput, Paragraph, toaster } from 'evergreen-ui'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
@@ -39,7 +39,7 @@ const Login = () => {
   }
 
   return (
-    <Pane is='form' onSubmit={handleSubmit} className='form'>
+    <Pane is='form' onSubmit={handleSubmit} className='form fade-in'>
       <Heading fontFamily='DM Serif Display' fontSize='x-large'>Login</Heading>
       <TextInput
         label="Email"

@@ -5,7 +5,7 @@ import Box from 'ui-box/dist/src/box'
 const LinkPage = () => {
 
   return (
-    <Pane className='links-container'>
+    <Pane className='links-container fade-in'>
       <Heading fontFamily='DM Serif Display' fontSize='x-large' marginBottom={20}>Links & Helplines</Heading>
       <Paragraph color='black'>On this page you can discover links and helplines to various organisations that offer help and <br />support for victims and witnesses of spikings.</Paragraph>
       <Box className='links-image'></Box>

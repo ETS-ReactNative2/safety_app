@@ -10,12 +10,9 @@ const Results = ({ matches, selected, resetState }) => {
   const navigate = useNavigate()
 
   selected.sort((a, b) => a - b)
-  console.log('selected', selected)
-  console.log('matches', matches)
-
 
   return (
-    <Pane className='result-container'>
+    <Pane className='result-container fade-in'>
       <Heading fontFamily='DM Serif Display' fontSize='x-large' color='black' marginBottom={20}>Your results</Heading>
       <Box className='matches-container'>
         <Text fontSize='15px' color='black'>Based on your symptoms, we think you might have been spiked with:</Text>
@@ -44,7 +41,7 @@ const Results = ({ matches, selected, resetState }) => {
         <Heading fontFamily='DM Serif Display' fontSize='large' marginBottom={4}>What to do now?</Heading>
         <Text fontSize='large' textDecoration='underline'><Strong>Report, report, report!</Strong></Text>
         <Paragraph>Spiking is a criminal offense, whether it happened now, recently or months ago. </Paragraph>
-        <Text className='link-color'><Link href='/resources' fontStyle='italic'>CLICK HERE</Link> for full list of actions in case of an emergency</Text>
+        <Text className='link-color'><Link href='/resources' fontStyle='italic'>CLICK HERE</Link> for full list of actions in case of emergency.</Text>
         <button className='frost web-only' onClick={() => navigate('/resources')}>Resources</button>
       </Box>
 

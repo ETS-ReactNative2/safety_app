@@ -6,7 +6,7 @@ import Box from 'ui-box/dist/src/box'
 const Resources = () => {
   const navigate = useNavigate()
   return (
-    <Pane className='resources-container'>
+    <Pane className='resources-container fade-in'>
       <Box className='resources-help'>
         <Heading fontFamily='DM Serif Display' fontSize='x-large' marginBottom={20}>What to do if you or someone else is spiked and/or assaulted?</Heading>
         <Box>

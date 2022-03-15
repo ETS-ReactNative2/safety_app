@@ -26,7 +26,7 @@ const SubstancePage = () => {
 
 
   return (
-    <Pane className='substances-container'>
+    <Pane className='substances-container fade-in'>
       <Heading fontFamily='DM Serif Display' fontSize='x-large' marginBottom={20}>Substances</Heading>
       <Paragraph color='black' marginBottom={35}>These are the most common spiking substances. <br />Click to find out more.</Paragraph>
       <Box className='substance-page-image'></Box>
